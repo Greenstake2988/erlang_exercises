@@ -1,5 +1,5 @@
 -module(what_the_if).
--export([heh_fine/0, oh_god/1, help_me/1]).
+-compile(export_all).
 
 
 heh_fine() ->
@@ -7,8 +7,8 @@ heh_fine() ->
         works
     end,
     if 1 =:= 2; 1 =:= 1 ->
-        works
-    end,
+        worksi
+    end,if
     if 1 =:= 2, 1 =:= 1 ->
         fails
     end.
