@@ -6,8 +6,8 @@
         ]).
 
 start() ->
-  io:format("Porfavor introduce un numero!\n"),
-  {ok, Numero} = io:read(" "),
+  %io:format("Porfavor introduce un numero!\n"),
+  {ok, Numero} = io:read("Por favor introduce un numero!\n"),
   %create_list(Numero),
   Primes = create_enumerate(2, 2, Numero),
   io:format("Los numeros primos son ~p~n", [Primes]).
