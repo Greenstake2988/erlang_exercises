@@ -7,18 +7,16 @@
 
 start() ->
   io:format("Porfavor introduce un numero!\n"),
-  {ok, Numero} = io:read("~d"),
-  create_list(Numero),
-  create_enumerate(2, 2, Numero).
+  {ok, Numero} = io:read(" "),
+  %create_list(Numero),
+  Primes = create_enumerate(2, 2, Numero),
+  io:format("Los numeros primos son ~p~n", [Primes]).
+
 
 create_list(Numero) ->
   create_list(2, Numero).
 
-ccreate_list(Value, Numero) ->
-  case Value of
-      Numero -> [Numero];
-      _ -> [Value | create_list(Value + 1, Numero)]
-  end.reate_list(Value, Numero) ->
+create_list(Value, Numero) ->
   case Value of
       Numero -> [Numero];
       _ -> [Value | create_list(Value + 1, Numero)]
@@ -31,12 +29,4 @@ create_enumerate(Value, Acc, Numero) ->
       false -> [NewValue | create_enumerate(Value, Acc + 1 , Numero)]
   end.
 
-create_multiple_lists(Numero, List) ->
-   
-  case lists:member(Numero, List) of
-     true ->
-         todo;
-     false ->
-         List
- end. 
 
