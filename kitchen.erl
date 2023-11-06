@@ -36,6 +36,20 @@ store(Pid, Food) ->
     {Pid, Msg} -> Msg
   end.
 
+store2(Pid, Food) ->
+  Pid ! {self(), {store, Food}},
+  receive
+    {Pid, Msg} -> Msg
+  after 3000 -> timeout
+  end.
+
+take2(Pid, Food) ->
+  Pid ! {self(), {take, Food}},
+  receive
+    {Pid, Msg} -> Msg
+  after 3000 -> timeout
+  end.
+
 take(Pid, Food) ->
   Pid ! {self(), {take, Food}},
   receive
